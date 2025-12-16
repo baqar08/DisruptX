@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Task Switching – DisruptX</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/switching.css">
+</head>
+
+<body>
+    <header class="walters-nav">
+        <div class="nav-brand">
+            <span>DisruptX</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">← Dashboard</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Task Switching</h1>
+
+        <section class="card">
+            <h2>Cognitive Flexibility Test</h2>
+            <p>
+                <strong>The Rules Change!</strong> Pay attention to the prompt above the shape.
+            </p>
+            <ul>
+                <li><strong>COLOR Rule:</strong> Is it Blue or Orange?</li>
+                <li><strong>SHAPE Rule:</strong> Is it a Circle or Square?</li>
+            </ul>
+            <p>Quickly click the matching button below.</p>
+
+            <div class="controls">
+                <button id="btn-start" class="btn-primary">Start Task</button>
+                <button id="btn-stop" class="btn-neutral" disabled>Stop</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <div id="rule-display" class="rule-indicator">Wait for start...</div>
+
+            <div id="switch-stimulus" class="color-blue shape-circle"></div>
+
+            <div class="input-area">
+                <button class="choice-btn" id="btn-left" style="background:#b2bec3;">Left</button>
+                <button class="choice-btn" id="btn-right" style="background:#b2bec3;">Right</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div>Repeat Cost</div>
+                    <div class="stat-val" id="val-repeat">--</div>
+                </div>
+                <div class="stat-box">
+                    <div>Switch Cost</div>
+                    <div class="stat-val" id="val-switch">--</div>
+                </div>
+                <div class="stat-box">
+                    <div>Errors</div>
+                    <div class="stat-val" id="val-errors">0</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/switching.js"></script>
+</body>
+
+</html>
