@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lapse Detector – DisruptX</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lapse.css">
+</head>
+
+<body>
+    <header class="walters-nav">
+        <div class="nav-brand">
+            <span>DisruptX</span>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">← Dashboard</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Lapse Detector</h1>
+
+        <section class="card">
+            <h2>Instructions</h2>
+            <p>
+                <strong>The Goal:</strong> Catch the signal. A Red Box will appear at random intervals.
+            </p>
+            <p>
+                Click the box or press <strong>SPACE</strong> as soon as you see red.
+                If you take too long or miss it completely, it counts as an <strong>Attention Lapse</strong>.
+            </p>
+            <div class="controls">
+                <button id="btn-start" class="btn-primary">Start Detection</button>
+                <button id="btn-stop" class="btn-neutral" disabled>Stop</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <div id="lapse-display">Wait for signal...</div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div>Lapses (Misses)</div>
+                    <div class="stat-val" id="val-lapses">0</div>
+                </div>
+                <div class="stat-box">
+                    <div>Valid Responses</div>
+                    <div class="stat-val" id="val-responses">0</div>
+                </div>
+                <div class="stat-box">
+                    <div>False Starts</div>
+                    <div class="stat-val" id="val-false">0</div>
+                </div>
+            </div>
+
+            <h3>Event Log</h3>
+            <div class="lapse-log" id="event-log">
+                <div class="log-item" style="color:#aaa;">No events yet.</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/lapse.js"></script>
+</body>
+
+</html>
