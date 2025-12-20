@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Temporal Stability – DisruptX</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/temporal.css">
+</head>
+
+<body>
+    <header class="walters-nav">
+        <div class="nav-brand">
+            <span>DisruptX</span>
+        </div>
+        <nav class="nav-links">
+            <a href="/">← Dashboard</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Temporal Stability</h1>
+
+        <section class="card">
+            <h2>Fatigue & Stability Analysis</h2>
+            <p>
+                <strong>The Task:</strong> React to the circle turning GREEN.
+                The system groups your responses into "blocks" of 5 trials to visualize trends.
+            </p>
+            <p>
+                Look for <strong>Upward Trends</strong> (Slowing/Fatigue) or <strong>Yellow Bars</strong> (Accuracy
+                Decline).
+            </p>
+            <div class="controls">
+                <button id="btn-start" class="btn-primary">Start Analysis</button>
+                <button id="btn-stop" class="btn-neutral" disabled>Stop</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <div id="temporal-stimulus">Wait</div>
+
+            <h3 style="margin-top:20px;">Performance Blocks (Avg RT)</h3>
+            <div class="chart-box" id="chart-container">
+                <!-- Bars go here -->
+                <div class="axis-label">Reaction Time (ms)</div>
+            </div>
+            <div class="legend">
+                <span><i class="dot" style="background:var(--accent-color)"></i> Stable</span>
+                <span><i class="dot" style="background:var(--warning-color)"></i> Declining Focus</span>
+            </div>
+
+            <p style="text-align:center; margin-top:10px;">Blocks Completed: <span id="block-count">0</span></p>
+        </section>
+    </div>
+
+    <script src="/static/js/temporal.js"></script>
+</body>
+
+</html>

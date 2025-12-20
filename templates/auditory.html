@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Auditory Distractions – DisruptX</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/auditory.css">
+</head>
+
+<body>
+    <header class="walters-nav">
+        <div class="nav-brand">
+            <span>DisruptX</span>
+        </div>
+        <nav class="nav-links">
+            <a href="/">← Dashboard</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Auditory Distractions</h1>
+
+        <section class="card">
+            <h2>Environment Simulator</h2>
+            <p>
+                <strong>The Goal:</strong> Click the Blue Square as fast as you can.
+            </p>
+            <p>
+                Use the toggles to turn on <strong>simulated office noise</strong> (White/Brown noise + intermittent
+                blips).
+                Compare your reaction time in Silence vs. Noise.
+            </p>
+
+            <div class="toggle-group">
+                <button class="toggle-btn active" id="mode-silent">Silent Mode</button>
+                <button class="toggle-btn" id="mode-noisy">Noisy Mode</button>
+            </div>
+
+            <div class="controls">
+                <button id="btn-start" class="btn-primary">Start Task</button>
+                <button id="btn-stop" class="btn-neutral" disabled>Stop</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <div id="auditory-stimulus">Wait</div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div>Avg RT (Silent)</div>
+                    <div class="stat-val" id="val-rt-silent">--</div>
+                    <span class="label-silent" id="count-silent">0 trials</span>
+                </div>
+                <div class="stat-box">
+                    <div>Avg RT (Noisy)</div>
+                    <div class="stat-val" id="val-rt-noisy">--</div>
+                    <span class="label-noisy" id="count-noisy">0 trials</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/static/js/auditory.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Time Perception – DisruptX</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+  <header class="walters-nav">
+    <div class="nav-brand">
+      <span>DisruptX</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/">← Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Time Perception</h1>
+
+    <section class="card">
+      <h2>Instructions</h2>
+      <p>
+        When you are ready, press <strong>Start</strong>. After that,
+        try to estimate exactly <strong>5 seconds</strong> in your head and press
+        the <strong>spacebar</strong> when you think 5 seconds have passed.
+      </p>
+      <p>
+        The simulator will measure how accurate your internal time perception is.
+      </p>
+      <div class="controls">
+        <button id="start-time-test" class="btn-primary">Start Test</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Test Area</h2>
+      <div id="time-box">Press "Start Test" to begin</div>
+      <p id="time-status"></p>
+    </section>
+
+    <section class="card" id="time-results" style="display:none;">
+      <h2>Time Perception Result</h2>
+      <p>Target interval: <strong>5000 ms</strong> (5 seconds)</p>
+      <p>Your estimate: <span id="tp-actual"></span> ms</p>
+      <p>Error: <span id="tp-error"></span> ms</p>
+      <p class="note">
+        Positive error = you waited too long. Negative error = you responded too early.
+        Larger absolute error means more distortion in time perception.
+      </p>
+    </section>
+  </diveohgoent>
+
+  <script src="/static/js/time_perception.js"></script>
+</body>
+
+</html>

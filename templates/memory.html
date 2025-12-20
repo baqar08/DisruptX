@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Working Memory – DisruptX</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/memory.css" />
+</head>
+
+<body>
+    <header class="walters-nav">
+        <div class="nav-brand">
+            <span>DisruptX</span>
+        </div>
+        <nav class="nav-links">
+            <a href="/">← Dashboard</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Working Memory</h1>
+
+        <section class="card">
+            <h2>Instructions</h2>
+            <p>
+                Test your short-term working memory. A sequence of numbers will appear on the screen one by one.
+                <strong>Memorize the sequence</strong>, and when it disappears, enter the numbers in the correct order.
+            </p>
+            <p>
+                The sequence gets longer with each correct answer. Choose a distraction level to see how it affects your
+                memory.
+            </p>
+
+            <div class="controls">
+                <button id="start-low" class="btn-primary">Start – Low Distraction</button>
+                <button id="start-high" class="btn-primary">Start – High Distraction</button>
+                <button id="stop-game" class="btn-neutral" disabled>Stop Game</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Memory Task</h2>
+            <div id="memory-display">Press Start to begin</div>
+
+            <div id="memory-input-area">
+                <div id="user-sequence-display"></div>
+                <div class="keypad">
+                    <button class="key-btn" data-val="1">1</button>
+                    <button class="key-btn" data-val="2">2</button>
+                    <button class="key-btn" data-val="3">3</button>
+                    <button class="key-btn" data-val="4">4</button>
+                    <button class="key-btn" data-val="5">5</button>
+                    <button class="key-btn" data-val="6">6</button>
+                    <button class="key-btn" data-val="7">7</button>
+                    <button class="key-btn" data-val="8">8</button>
+                    <button class="key-btn" data-val="9">9</button>
+                    <button class="key-btn action-btn btn-neutral" id="btn-clear">Clear</button>
+                    <button class="key-btn" data-val="0">0</button>
+                    <button class="key-btn action-btn btn-primary" id="btn-submit">Submit</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Live Stats</h2>
+            <p>Current Level (Length): <span id="current-level">1</span></p>
+            <p>Best Span This Session: <span id="best-span">0</span></p>
+        </section>
+
+        <section class="card" id="results-card" style="display:none;">
+            <h2>Session Summary</h2>
+            <p>Max Memory Span: <span id="res-span"></span> digits</p>
+            <p>Total Rounds: <span id="res-rounds"></span></p>
+            <p>Distraction Level: <span id="res-distraction"></span></p>
+            <p class="note">
+                This result has been saved.
+            </p>
+        </section>
+
+        <div id="distraction-layer"></div>
+    </div>
+
+    <script src="/static/js/distractions.js"></script>
+    <script src="/static/js/memory_task.js"></script>
+</body>
+
+</html>
