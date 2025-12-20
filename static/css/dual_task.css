@@ -40,10 +40,8 @@
     font-size: 3rem;
     margin-top: 10px;
     color: var(--text-muted);
-    /* Corrected variable from secondary */
 }
 
-/* Hover effects for Test buttons */
 #btn-visual-only:hover,
 #btn-audio-only:hover {
     background-color: #e5e7eb;

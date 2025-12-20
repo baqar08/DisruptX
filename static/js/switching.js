@@ -82,17 +82,17 @@ function renderTrial() {
 
     if (state.currentRule === 'COLOR') {
         btnLeft.textContent = "Blue";
-        btnLeft.style.background = "#0f4c75"; // Walters Primary Blue
+        btnLeft.style.background = "#0f4c75"; 
         btnLeft.style.color = "#ffffff";
         btnRight.textContent = "Orange";
-        btnRight.style.background = "#ea580c"; // Walters Orange
+        btnRight.style.background = "#ea580c";
         btnRight.style.color = "#ffffff";
     } else {
         btnLeft.textContent = "Circle";
-        btnLeft.style.background = "#4b5563"; // Walters Slate Gray
+        btnLeft.style.background = "#4b5563";
         btnLeft.style.color = "#ffffff";
         btnRight.textContent = "Square";
-        btnRight.style.background = "#4b5563"; // Walters Slate Gray
+        btnRight.style.background = "#4b5563";
         btnRight.style.color = "#ffffff";
     }
 }
@@ -116,7 +116,7 @@ function handleInput(side) {
     } else {
         state.errors++;
         ruleDisplay.textContent = "WRONG!";
-        ruleDisplay.style.background = "#ef4444"; // Walters Red
+        ruleDisplay.style.background = "#ef4444";
         ruleDisplay.style.color = "#fff";
     }
 

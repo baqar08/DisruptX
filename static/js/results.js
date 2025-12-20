@@ -106,3 +106,4 @@ renderFocusResults();
 renderTimeResults();
 renderMemoryResults();
 renderDualResults();
+

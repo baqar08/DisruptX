@@ -130,7 +130,6 @@ function triggerVisual() {
     setTimeout(() => {
         if (!state.running) return;
         if (state.visActive) {
-            // Missed target or correctly ignored non-target?
             if (state.visIsTarget) {
                 state.visStats.wrong++;
             } else {
@@ -168,9 +167,9 @@ function triggerAudio() {
     setTimeout(() => audIndicator.style.opacity = "0.3", 200);
 
     if (state.audIsTarget) {
-        playTone(880, 'sine'); // High
+        playTone(880, 'sine');
     } else {
-        playTone(300, 'square'); // Low
+        playTone(300, 'square');
     }
 
     setTimeout(() => {
@@ -276,7 +275,6 @@ window.addEventListener("keydown", (e) => {
         handleInput('audio');
     }
     if (e.key === ' ' && state.mode === 'audio') {
-        // Allow space for single task audio as well
         handleInput('audio');
     }
 });

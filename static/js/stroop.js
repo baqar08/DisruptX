@@ -70,14 +70,12 @@ function nextTrial() {
     state.trials++;
     updateStats();
 
-    // Logic for congruent vs incongruent (50/50 split target)
     state.currentWord = COLORS[Math.floor(Math.random() * COLORS.length)];
     const forceCongruent = Math.random() > 0.5;
 
     if (forceCongruent) {
         state.currentColor = state.currentWord;
     } else {
-        // Pick a color different from the word
         let others = COLORS.filter(c => c !== state.currentWord);
         state.currentColor = others[Math.floor(Math.random() * others.length)];
     }
@@ -107,7 +105,6 @@ function handleInput(selectedColor) {
         rt: rt
     });
 
-    // Feedback
     if (!correct) {
         display.textContent = "WRONG";
         display.style.color = "#2d3436";

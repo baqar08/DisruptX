@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In – DisruptX</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+
+<body>
+    <header class="walters-nav">
+        <div class="nav-brand">
+            <span>DisruptX</span>
+        </div>
+        <nav class="nav-links">
+            <a href="{{ url_for('dashboard') }}">← Dashboard</a>
+        </nav>
+    </header>
+
+    <div class="container auth-container">
+        <div class="card auth-card">
+            <h1>Welcome Back</h1>
+            <p class="auth-subtitle">Sign in to sync your cognitive data across devices.</p>
+
+            <div id="auth-error" class="auth-error" style="display:none;"></div>
+
+            <button id="btn-google-login" class="btn-google">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google G">
+                <span>Sign in with Google</span>
+            </button>
+
+            <div id="user-info" style="display:none;">
+                <p>Logged in as <span id="user-email"></span></p>
+                <button id="btn-logout" class="btn-neutral">Sign Out</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="{{ url_for('static', filename='js/auth.js') }}"></script>
+
+    <script>
+        window.firebaseConfig = {
+            apiKey: "{{ firebase_config.apiKey }}",
+            authDomain: "{{ firebase_config.authDomain }}",
+            projectId: "{{ firebase_config.projectId }}",
+            storageBucket: "{{ firebase_config.storageBucket }}",
+            messagingSenderId: "{{ firebase_config.messagingSenderId }}",
+            appId: "{{ firebase_config.appId }}"
+        };
+    </script>
+</body>
+</html>
+
+
+qwertyui
+raa
+chalti 
+still hero 
+sapne sohane 
+ungreatful people 
+taksh tum pat KROGE 
+vinland saga 
+maarkhana bhot sexy thi 
+ securit uisthe priority Goal
+ heyyy
+ commands dekh lena 
