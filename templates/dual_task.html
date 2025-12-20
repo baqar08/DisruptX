@@ -10,13 +10,16 @@
 
 <body>
     <header class="walters-nav">
-        <div class="nav-brand">
-            <span>DisruptX</span>
-        </div>
-        <nav class="nav-links">
-            <a href="{{ url_for('dashboard') }}">← Dashboard</a>
-        </nav>
-    </header>
+    <button class="nav-back-btn" onclick="history.back()">← Back</button>
+    <nav class="nav-links">
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    </nav>
+    <button class="nav-logout-btn" id="nav-logout-btn">Logout</button>
+    <div class="nav-profile">
+      <div class="profile-icon">👤</div>
+      <div class="profile-username" id="navbar-username">Guest</div>
+    </div>
+  </header>
 
     <div class="container">
         <h1>Dual Task</h1>
@@ -87,6 +90,18 @@
     </div>
 
     <script src="{{ url_for('static', filename='js/dual_task.js') }}"></script>
+
+  <script>
+    window.firebaseConfig = {
+      apiKey: "{{ firebase_config.apiKey }}",
+      authDomain: "{{ firebase_config.authDomain }}",
+      projectId: "{{ firebase_config.projectId }}",
+      storageBucket: "{{ firebase_config.storageBucket }}",
+      messagingSenderId: "{{ firebase_config.messagingSenderId }}",
+      appId: "{{ firebase_config.appId }}"
+    };
+  </script>
+  <script type="module" src="{{ url_for('static', filename='js/user_profile.js') }}"></script>
 </body>
 
 </html>

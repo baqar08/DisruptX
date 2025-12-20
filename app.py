@@ -25,7 +25,20 @@ def index():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('index.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('index.html', firebase_config=firebase_config)
 
 @app.route('/auth')
 def auth():
@@ -48,51 +61,208 @@ def auth():
 
 @app.route('/auditory')
 def auditory():
-    return render_template('auditory.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('auditory.html', firebase_config=firebase_config)
 
 @app.route('/dual_task')
 def dual_task():
-    return render_template('dual_task.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('dual_task.html', firebase_config=firebase_config)
 
 @app.route('/focus')
 def focus():
-    return render_template('focus.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('focus.html', firebase_config=firebase_config)
 
 @app.route('/info')
 def info():
-    return render_template('info.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('info.html', firebase_config=firebase_config)
 
 @app.route('/lapse')
 def lapse():
-    return render_template('lapse.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('lapse.html', firebase_config=firebase_config)
 
 @app.route('/memory')
 def memory():
-    return render_template('memory.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('memory.html', firebase_config=firebase_config)
 
 @app.route('/results')
 def results():
-    return render_template('results.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('results.html', firebase_config=firebase_config)
 
 @app.route('/stroop')
 def stroop():
-    return render_template('stroop.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('stroop.html', firebase_config=firebase_config)
 
 @app.route('/sustained')
 def sustained():
-    return render_template('sustained.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('sustained.html', firebase_config=firebase_config)
 
 @app.route('/switching')
 def switching():
-    return render_template('switching.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('switching.html', firebase_config=firebase_config)
 
 @app.route('/temporal')
 def temporal():
-    return render_template('temporal.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('temporal.html', firebase_config=firebase_config)
 
 @app.route('/time')
 def time():
-    return render_template('time.html')
+    def get_clean(key):
+        val = os.getenv(key, '')
+        return val.strip().strip("'").strip('"')
+
+    firebase_config = {
+        'apiKey': get_clean('FIREBASE_API_KEY'),
+        'authDomain': get_clean('FIREBASE_AUTH_DOMAIN'),
+        'projectId': get_clean('FIREBASE_PROJECT_ID'),
+        'storageBucket': get_clean('FIREBASE_STORAGE_BUCKET'),
+        'messagingSenderId': get_clean('FIREBASE_MESSAGING_SENDER_ID'),
+        'appId': get_clean('FIREBASE_APP_ID')
+    }
+    
+    return render_template('time.html', firebase_config=firebase_config)
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost', port=5001)
+ 
