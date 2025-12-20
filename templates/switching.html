@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Task Switching – DisruptX</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/switching.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/switching.css') }}">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
             <span>DisruptX</span>
         </div>
         <nav class="nav-links">
-            <a href="/">← Dashboard</a>
+            <a href="{{ url_for('index') }}">← Dashboard</a>
         </nav>
     </header>
 
@@ -65,7 +65,7 @@
         </section>
     </div>
 
-    <script src="/static/js/switching.js"></script>
+    <script src="{{ url_for('static', filename='js/switching.js') }}"></script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>DisruptX - Cognitive Tools</title>
-  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 
 <body>
@@ -15,9 +15,9 @@
       <span>DisruptX</span>
     </div>
     <nav class="nav-links">
-      <a href="/">Dashboard</a>
-      <a href="/info">About</a>
-      <a href="/results">Results</a>
+      <a href="{{ url_for('index') }}">Dashboard</a>
+      <a href="{{ url_for('info') }}">About</a>
+      <a href="{{ url_for('results') }}">Results</a>
     </nav>
   </header>
 
@@ -69,7 +69,7 @@
       <div class="features-grid" id="featuresGrid">
 
         <!-- Card 1: Focus -->
-        <a href="/focus" class="integration-card" data-category="core">
+        <a href="{{ url_for('focus') }}" class="integration-card" data-category="core">
           <div class="card-header">
             <div class="icon-circle icon-yellow">⚡</div>
             <div class="toggle-fake"></div>
@@ -79,7 +79,7 @@
         </a>
 
         <!-- Card 2: Memory -->
-        <a href="/memory" class="integration-card" data-category="core">
+        <a href="{{ url_for('memory') }}" class="integration-card" data-category="core">
           <div class="card-header">
             <div class="icon-circle icon-orange">🧠</div>
             <div class="toggle-fake"></div>
@@ -89,7 +89,7 @@
         </a>
 
         <!-- Card 3: Dual Task -->
-        <a href="/dual_task" class="integration-card" data-category="core">
+        <a href="{{ url_for('dual_task') }}" class="integration-card" data-category="core">
           <div class="card-header">
             <div class="icon-circle icon-blue">⚖️</div>
             <div class="toggle-fake"></div>
@@ -99,7 +99,7 @@
         </a>
 
         <!-- Card 4: Stroop -->
-        <a href="/stroop" class="integration-card" data-category="core">
+        <a href="{{ url_for('stroop') }}" class="integration-card" data-category="core">
           <div class="card-header">
             <div class="icon-circle icon-purple">🎨</div>
             <div class="toggle-fake"></div>
@@ -109,7 +109,7 @@
         </a>
 
         <!-- Card 5: Sustained -->
-        <a href="/sustained" class="integration-card" data-category="attention">
+        <a href="{{ url_for('sustained') }}" class="integration-card" data-category="attention">
           <div class="card-header">
             <div class="icon-circle icon-green">⏱️</div>
             <div class="toggle-fake"></div>
@@ -119,7 +119,7 @@
         </a>
 
         <!-- Card 6: Lapse -->
-        <a href="/lapse" class="integration-card" data-category="attention">
+        <a href="{{ url_for('lapse') }}" class="integration-card" data-category="attention">
           <div class="card-header">
             <div class="icon-circle" style="background:#f3f4f6; color:#1f2937;">👁️</div>
             <div class="toggle-fake"></div>
@@ -129,7 +129,7 @@
         </a>
 
         <!-- Card 7: Temporal -->
-        <a href="/temporal" class="integration-card" data-category="attention">
+        <a href="{{ url_for('temporal') }}" class="integration-card" data-category="attention">
           <div class="card-header">
             <div class="icon-circle" style="background:#fff1f2; color:#be123c;">📈</div>
             <div class="toggle-fake"></div>
@@ -139,7 +139,7 @@
         </a>
 
         <!-- Card 8: Switching -->
-        <a href="/switching" class="integration-card" data-category="core">
+        <a href="{{ url_for('switching') }}" class="integration-card" data-category="core">
           <div class="card-header">
             <div class="icon-circle" style="background:#ecfeff; color:#0e7490;">🔀</div>
             <div class="toggle-fake"></div>
@@ -149,7 +149,7 @@
         </a>
 
         <!-- Card 9: Auditory -->
-        <a href="/auditory" class="integration-card" data-category="attention">
+        <a href="{{ url_for('auditory') }}" class="integration-card" data-category="attention">
           <div class="card-header">
             <div class="icon-circle" style="background:#fdf4ff; color:#a21caf;">🔊</div>
             <div class="toggle-fake"></div>
@@ -159,7 +159,7 @@
         </a>
 
         <!-- Card 10: Time Perception -->
-        <a href="/time" class="integration-card" data-category="core">
+        <a href="{{ url_for('time') }}" class="integration-card" data-category="core">
           <div class="card-header">
             <div class="icon-circle" style="background:#fef3c7; color:#b45309;">⏰</div>
             <div class="toggle-fake"></div>
@@ -169,7 +169,7 @@
         </a>
 
         <!-- Card 11: Results -->
-        <a href="/results" class="integration-card" data-category="analysis">
+        <a href="{{ url_for('results') }}" class="integration-card" data-category="analysis">
           <div class="card-header">
             <div class="icon-circle" style="background:#dbeafe; color:#1e40af;">📊</div>
             <div class="toggle-fake"></div>
@@ -179,7 +179,7 @@
         </a>
 
         <!-- Card 12: Info -->
-        <a href="/info" class="integration-card" data-category="analysis">
+        <a href="{{ url_for('info') }}" class="integration-card" data-category="analysis">
           <div class="card-header">
             <div class="icon-circle" style="background:#f0fdf4; color:#15803d;">📚</div>
             <div class="toggle-fake"></div>

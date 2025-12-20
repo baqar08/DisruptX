@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Auditory Distractions – DisruptX</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/auditory.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auditory.css') }}">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
             <span>DisruptX</span>
         </div>
         <nav class="nav-links">
-            <a href="/">← Dashboard</a>
+            <a href="{{ url_for('index') }}">← Dashboard</a>
         </nav>
     </header>
 
@@ -61,7 +61,7 @@
         </section>
     </div>
 
-    <script src="/static/js/auditory.js"></script>
+    <script src="{{ url_for('static', filename='js/auditory.js') }}"></script>
 </body>
 
 </html>

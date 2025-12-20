@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <title>Interference Task – DisruptX</title>
-    <link rel="stylesheet" href="/static/css/style.css" />
-    <link rel="stylesheet" href="/static/css/stroop.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stroop.css') }}" />
 </head>
 
 <body>
@@ -14,7 +14,7 @@
             <span>DisruptX</span>
         </div>
         <nav class="nav-links">
-            <a href="/">← Dashboard</a>
+            <a href="{{ url_for('index') }}">← Dashboard</a>
         </nav>
     </header>
 
@@ -76,7 +76,7 @@
         </section>
     </div>
 
-    <script src="/static/js/stroop.js"></script>
+    <script src="{{ url_for('static', filename='js/stroop.js') }}"></script>
 </body>
 
 </html>

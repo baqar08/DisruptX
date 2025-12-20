@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Temporal Stability – DisruptX</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/temporal.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/temporal.css') }}">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
             <span>DisruptX</span>
         </div>
         <nav class="nav-links">
-            <a href="/">← Dashboard</a>
+            <a href="{{ url_for('index') }}">← Dashboard</a>
         </nav>
     </header>
 
@@ -54,7 +54,7 @@
         </section>
     </div>
 
-    <script src="/static/js/temporal.js"></script>
+    <script src="{{ url_for('static', filename='js/temporal.js') }}"></script>
 </body>
 
 </html>
