@@ -1,0 +1,62 @@
+#lapse-display {
+    height: 200px;
+    background: #dfe6e9;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #b2bec3;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+#lapse-display.active {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-val {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.lapse-log {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    background: #f8f9fa;
+    font-size: 0.9rem;
+}
+
+.log-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.log-item.lapse {
+    color: var(--error-color);
+    font-weight: bold;
+}

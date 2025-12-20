@@ -1,0 +1,90 @@
+#temporal-stimulus {
+    height: 120px;
+    width: 120px;
+    background: #dfe6e9;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    transition: transform 0.1s;
+    cursor: pointer;
+}
+
+#temporal-stimulus.active {
+    transform: scale(0.9);
+}
+
+.chart-box {
+    height: 250px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    overflow-x: auto;
+}
+
+.block-bar {
+    width: 30px;
+    background: var(--accent-color);
+    transition: height 0.5s;
+    position: relative;
+    flex-shrink: 0;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.block-bar:hover::after {
+    content: attr(data-val);
+    position: absolute;
+    top: -25px;
+    background: #2d3436;
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+}
+
+.block-bar.decline {
+    background: var(--warning-color);
+}
+
+.axis-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    font-size: 0.8rem;
+    color: #b2bec3;
+}
+
+.legend {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.legend span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}

@@ -1,0 +1,56 @@
+#memory-display {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f2f6;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    transition: all 0.2s;
+}
+
+#memory-input-area {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#user-sequence-display {
+    font-size: 2rem;
+    font-weight: 600;
+    min-height: 60px;
+    color: var(--text-primary);
+    letter-spacing: 5px;
+    border-bottom: 2px solid var(--accent-color);
+    padding: 0 20px;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 300px;
+}
+
+.key-btn {
+    padding: 15px;
+    font-size: 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-primary);
+}
+
+.key-btn:active {
+    transform: scale(0.95);
+    background-color: #f1f2f6;
+}
+
+.action-btn {
+    grid-column: span 3;
+    font-size: 1rem;
+}

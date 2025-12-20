@@ -1,0 +1,54 @@
+#stroop-display {
+    font-size: 4rem;
+    font-weight: 800;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f2f6;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.2s;
+}
+
+.color-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.color-btn {
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: 2px solid transparent;
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+    color: var(--text-primary);
+}
+
+.color-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-red {
+    border-bottom: 4px solid #e74c3c;
+}
+
+.btn-blue {
+    border-bottom: 4px solid #3498db;
+}
+
+.btn-green {
+    border-bottom: 4px solid #2ecc71;
+}
+
+.btn-yellow {
+    border-bottom: 4px solid #f1c40f;
+}
+
