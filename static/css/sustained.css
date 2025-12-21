@@ -1,4 +1,5 @@
 #sart-display {
+    position: relative;
     font-size: 8rem;
     font-weight: 700;
     height: 250px;
@@ -75,4 +76,71 @@
     font-weight: bold;
     border-radius: 8px;
     margin-bottom: 15px;
+}
+
+.blur-drift {
+    animation: driftEffect 2s infinite ease-in-out;
+    filter: blur(1.5px);
+}
+
+@keyframes driftEffect {
+    0% {
+        transform: translateX(0);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateX(3px) skewX(2deg);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 0.8;
+    }
+}
+
+.intrusive-thought {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 10;
+    animation: thoughtFloat 3s forwards;
+    white-space: nowrap;
+}
+
+[data-theme="dark"] .intrusive-thought {
+    background: rgba(30, 41, 59, 0.9);
+    color: var(--text-main);
+}
+
+@keyframes thoughtFloat {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
 }

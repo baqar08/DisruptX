@@ -8,10 +8,17 @@ const statCommission = document.getElementById("stat-commission");
 const statOmission = document.getElementById("stat-omission");
 const statDrift = document.getElementById("stat-drift");
 
+const thoughts = [
+    "This is boring", "Did I lock the door?", "What time is it?",
+    "I'm hungry", "Look at the wall", "My leg itches",
+    "Focus...", "Did I text them back?", "What was that noise?"
+];
+
 const state = {
     running: false,
     timer: null,
     trialTimer: null,
+    thoughtTimer: null,
     currentDigit: null,
     startTime: 0,
     responded: false,
@@ -42,16 +49,50 @@ function startTask() {
     display.textContent = "...";
 
     setTimeout(nextTrial, 1000);
+    scheduleThought();
 }
 
 function stopTask() {
     state.running = false;
     clearTimeout(state.timer);
     clearTimeout(state.trialTimer);
+    clearTimeout(state.thoughtTimer);
+
+    display.classList.remove("blur-drift");
+    const existing = display.querySelector(".intrusive-thought");
+    if (existing) existing.remove();
 
     btnStart.disabled = false;
     btnStop.disabled = true;
     display.textContent = "Done";
+}
+
+function scheduleThought() {
+    if (!state.running) return;
+    const delay = 2000 + Math.random() * 4000;
+    state.thoughtTimer = setTimeout(() => {
+        showThought();
+        scheduleThought();
+    }, delay);
+}
+
+function showThought() {
+    if (!state.running) return;
+    const txt = thoughts[Math.floor(Math.random() * thoughts.length)];
+    const el = document.createElement("div");
+    el.className = "intrusive-thought";
+    el.textContent = txt;
+
+    const rect = display.getBoundingClientRect();
+    const randomX = (Math.random() - 0.5) * 100;
+    const randomY = (Math.random() - 0.5) * 60;
+    el.style.transform = `translate(calc(-50% + ${randomX}px), calc(-50% + ${randomY}px))`;
+
+    display.appendChild(el);
+
+    setTimeout(() => {
+        if (el.parentNode) el.remove();
+    }, 3000);
 }
 
 function nextTrial() {
@@ -64,8 +105,15 @@ function nextTrial() {
     state.startTime = Date.now();
     display.style.color = "";
 
+    if (Math.random() > 0.7) {
+        display.classList.add("blur-drift");
+    } else {
+        display.classList.remove("blur-drift");
+    }
+
     state.trialTimer = setTimeout(() => {
         if (state.running) display.textContent = "+";
+        display.classList.remove("blur-drift");
     }, state.displayTime);
 
     state.timer = setTimeout(() => {
