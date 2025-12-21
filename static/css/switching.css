@@ -17,15 +17,16 @@
     margin-bottom: 20px;
     padding: 10px;
     border-radius: 8px;
-    background: #dfe6e9;
-    color: #636e72;
+    background: var(--badge-bg);
+    color: var(--text-muted);
     font-weight: bold;
     transition: all 0.2s;
+    border: 1px solid var(--border-color);
 }
 
 .rule-indicator.active {
-    background: #2d3436;
-    color: #fff;
+    background: var(--text-main);
+    color: var(--bg-color);
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -46,7 +47,7 @@
     cursor: pointer;
     text-transform: uppercase;
     color: #fff;
-    background-color: #4b5563;
+    background-color: var(--text-muted);
     transition: transform 0.1s, background-color 0.2s;
 }
 
@@ -79,14 +80,18 @@
 
 .stat-box {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     text-align: center;
-    background: #fff;
+    background: var(--stat-bg);
 }
 
 .stat-val {
     font-weight: 700;
     font-size: 1.2rem;
-    color: var(--accent-color);
+    color: #0f4c75;
+}
+
+[data-theme="dark"] .stat-val {
+    color: #38bdf8;
 }

@@ -120,7 +120,7 @@ function scheduleNext() {
     state.awaiting = false;
     stimulus.textContent = "Wait";
     stimulus.className = "";
-    stimulus.style.background = "#dfe6e9";
+    stimulus.style.background = "";
 
     const delay = 1000 + Math.random() * 2000;
 
@@ -131,7 +131,7 @@ function scheduleNext() {
         state.awaiting = true;
         stimulus.textContent = "CLICK";
         stimulus.className = "target";
-        stimulus.style.background = "#0984e3";
+        stimulus.style.background = "";
 
         if (state.mode === 'noisy' && Math.random() > 0.5) {
             playBeep();

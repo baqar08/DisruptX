@@ -11,8 +11,8 @@
 }
 
 .task-box {
-    border: 2px solid #e0e0e0;
-    border-radius: var(--border-radius);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
     padding: 20px;
     text-align: center;
     min-height: 150px;
@@ -21,6 +21,7 @@
     align-items: center;
     justify-content: center;
     transition: all 0.2s;
+    background: var(--card-bg);
 }
 
 #visual-stimulus {
@@ -33,7 +34,9 @@
     justify-content: center;
     border-radius: 8px;
     margin-top: 10px;
-    background: #f1f2f6;
+    background: var(--stimulus-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
 }
 
 #audio-indicator {
@@ -44,9 +47,9 @@
 
 #btn-visual-only:hover,
 #btn-audio-only:hover {
-    background-color: #e5e7eb;
-    color: #111827;
-    border-color: #9ca3af;
+    background-color: var(--btn-neutral-bg);
+    color: var(--text-main);
+    border-color: var(--text-muted);
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }

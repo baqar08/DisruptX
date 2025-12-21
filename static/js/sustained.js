@@ -62,7 +62,7 @@ function nextTrial() {
 
     display.textContent = state.currentDigit;
     state.startTime = Date.now();
-    display.style.color = "#2d3436";
+    display.style.color = "";
 
     state.trialTimer = setTimeout(() => {
         if (state.running) display.textContent = "+";

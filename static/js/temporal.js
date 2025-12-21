@@ -31,7 +31,7 @@ function startTask() {
     btnStop.disabled = false;
 
     stimulus.textContent = "Wait";
-    stimulus.style.background = "#dfe6e9";
+    stimulus.style.background = "";
 
     setTimeout(nextTrial, 1500);
 }
@@ -40,7 +40,7 @@ function stopTask() {
     state.running = false;
     clearTimeout(state.timer);
     stimulus.textContent = "Stopped";
-    stimulus.style.background = "#dfe6e9";
+    stimulus.style.background = "";
     btnStart.disabled = false;
     btnStop.disabled = true;
 }
@@ -48,7 +48,7 @@ function stopTask() {
 function nextTrial() {
     if (!state.running) return;
     state.awaiting = false;
-    stimulus.style.background = "#dfe6e9";
+    stimulus.style.background = "";
     stimulus.textContent = "...";
 
     const delay = 1000 + Math.random() * 1500;
@@ -69,7 +69,7 @@ function handleInput() {
     const rt = Date.now() - state.startTime;
 
     stimulus.textContent = `${rt}ms`;
-    stimulus.style.background = "#dfe6e9";
+    stimulus.style.background = "";
 
     processTrial(rt);
 

@@ -5,11 +5,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f8f9fa;
-    border-radius: var(--border-radius);
+    background: var(--stimulus-bg);
+    border-radius: 12px;
     margin-bottom: 20px;
-    color: #2d3436;
+    color: var(--text-main);
     transition: color 0.1s;
+    border: 2px solid var(--border-color);
 }
 
 .stats-grid {
@@ -20,9 +21,9 @@
 }
 
 .stat-box {
-    background: #fff;
+    background: var(--stat-bg);
     padding: 15px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     text-align: center;
 }
@@ -30,23 +31,27 @@
 .stat-val {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent-color);
+    color: #0f4c75;
+}
+
+[data-theme="dark"] .stat-val {
+    color: #38bdf8;
 }
 
 .timeline-container {
     height: 150px;
-    background: #f1f2f6;
+    background: var(--stimulus-bg);
     border-radius: 8px;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     padding: 0 5px;
+    border: 1px solid var(--border-color);
 }
 
 .time-bar {
     width: 4px;
-    /* Narrow bars for density */
     margin-right: 1px;
     background: #bdc3c7;
     border-radius: 2px 2px 0 0;
@@ -55,7 +60,6 @@
 
 .drift-point {
     background: #e74c3c !important;
-    /* Red for drift */
 }
 
 .stable-point {

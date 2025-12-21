@@ -75,6 +75,8 @@ function nextTrial() {
 function renderTrial() {
     ruleDisplay.textContent = `Rule: ${state.currentRule}`;
     ruleDisplay.className = "rule-indicator active";
+    ruleDisplay.style.background = "";
+    ruleDisplay.style.color = "";
 
     stimulus.className = "";
     stimulus.classList.add(`color-${state.currentColor}`);
@@ -82,7 +84,7 @@ function renderTrial() {
 
     if (state.currentRule === 'COLOR') {
         btnLeft.textContent = "Blue";
-        btnLeft.style.background = "#0f4c75"; 
+        btnLeft.style.background = "#0f4c75";
         btnLeft.style.color = "#ffffff";
         btnRight.textContent = "Orange";
         btnRight.style.background = "#ea580c";

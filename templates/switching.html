@@ -6,6 +6,7 @@
     <title>Task Switching – DisruptX</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/switching.css') }}">
+  <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
 </head>
 
 <body>
@@ -15,6 +16,7 @@
       <a href="{{ url_for('dashboard') }}">Dashboard</a>
     </nav>
     <button class="nav-logout-btn" id="nav-logout-btn">Logout</button>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">☀️</button>
     <div class="nav-profile">
       <div class="profile-icon">👤</div>
       <div class="profile-username" id="navbar-username">Guest</div>

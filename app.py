@@ -1,11 +1,13 @@
 import os
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, session, request, jsonify
+from functools import wraps
 from dotenv import load_dotenv
 load_dotenv()
 import firebase_admin
 from firebase_admin import credentials, auth
 
 app = Flask(__name__)
+app.secret_key = os.getenv('SECRET_KEY', 'your-secret-key-change-this-in-production')
 
 service_account_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
 
@@ -19,11 +21,52 @@ if service_account_path and os.path.exists(service_account_path):
 else:
     print("Warning: GOOGLE_APPLICATION_CREDENTIALS not set or file not found. Auth features may not work.")
 
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get('logged_in'):
+            return redirect(url_for('auth'))
+        return f(*args, **kwargs)
+    return decorated_function
+
 @app.route('/')
 def index():
     return redirect(url_for('auth'))
 
+@app.route('/api/guest-login', methods=['POST'])
+def guest_login():
+    guest_id = request.json.get('guestId')
+    if guest_id:
+        session['logged_in'] = True
+        session['user_type'] = 'guest'
+        session['user_id'] = guest_id
+        return jsonify({'success': True, 'message': 'Guest login successful'})
+    return jsonify({'success': False, 'message': 'Invalid guest ID'}), 400
+
+@app.route('/api/firebase-login', methods=['POST'])
+def firebase_login():
+    try:
+        id_token = request.json.get('idToken')
+        decoded_token = auth.verify_id_token(id_token)
+        uid = decoded_token['uid']
+        email = decoded_token.get('email', '')
+        
+        session['logged_in'] = True
+        session['user_type'] = 'firebase'
+        session['user_id'] = uid
+        session['user_email'] = email
+        
+        return jsonify({'success': True, 'message': 'Login successful'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 401
+
+@app.route('/api/logout', methods=['POST'])
+def logout():
+    session.clear()
+    return jsonify({'success': True, 'message': 'Logged out successfully'})
+
 @app.route('/dashboard')
+@login_required
 def dashboard():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -60,6 +103,7 @@ def auth():
     return render_template('auth.html', firebase_config=firebase_config)
 
 @app.route('/auditory')
+@login_required
 def auditory():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -77,6 +121,7 @@ def auditory():
     return render_template('auditory.html', firebase_config=firebase_config)
 
 @app.route('/dual_task')
+@login_required
 def dual_task():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -94,6 +139,7 @@ def dual_task():
     return render_template('dual_task.html', firebase_config=firebase_config)
 
 @app.route('/focus')
+@login_required
 def focus():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -111,6 +157,7 @@ def focus():
     return render_template('focus.html', firebase_config=firebase_config)
 
 @app.route('/info')
+@login_required
 def info():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -128,6 +175,7 @@ def info():
     return render_template('info.html', firebase_config=firebase_config)
 
 @app.route('/lapse')
+@login_required
 def lapse():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -145,6 +193,7 @@ def lapse():
     return render_template('lapse.html', firebase_config=firebase_config)
 
 @app.route('/memory')
+@login_required
 def memory():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -162,6 +211,7 @@ def memory():
     return render_template('memory.html', firebase_config=firebase_config)
 
 @app.route('/results')
+@login_required
 def results():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -179,6 +229,7 @@ def results():
     return render_template('results.html', firebase_config=firebase_config)
 
 @app.route('/stroop')
+@login_required
 def stroop():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -196,6 +247,7 @@ def stroop():
     return render_template('stroop.html', firebase_config=firebase_config)
 
 @app.route('/sustained')
+@login_required
 def sustained():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -213,6 +265,7 @@ def sustained():
     return render_template('sustained.html', firebase_config=firebase_config)
 
 @app.route('/switching')
+@login_required
 def switching():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -230,6 +283,7 @@ def switching():
     return render_template('switching.html', firebase_config=firebase_config)
 
 @app.route('/temporal')
+@login_required
 def temporal():
     def get_clean(key):
         val = os.getenv(key, '')
@@ -247,6 +301,7 @@ def temporal():
     return render_template('temporal.html', firebase_config=firebase_config)
 
 @app.route('/time')
+@login_required
 def time():
     def get_clean(key):
         val = os.getenv(key, '')

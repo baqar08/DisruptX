@@ -22,14 +22,30 @@ if (btnLogin) {
         signInWithPopup(auth, provider)
             .then((result) => {
                 console.log("User:", result.user);
-                // Clear guest mode
-                localStorage.removeItem('guestMode');
-                localStorage.removeItem('guestId');
-                window.location.href = "/dashboard";
+                return result.user.getIdToken();
+            })
+            .then((idToken) => {
+                return fetch('/api/firebase-login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ idToken: idToken })
+                });
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.removeItem('guestMode');
+                    localStorage.removeItem('guestId');
+                    window.location.href = "/dashboard";
+                } else {
+                    throw new Error(data.message);
+                }
             })
             .catch((error) => {
                 console.error("Error:", error);
-                authError.textContent = error.message;
+                authError.textContent = error.message || "Login failed";
                 authError.style.display = "block";
             });
     });
@@ -37,29 +53,59 @@ if (btnLogin) {
 
 if (btnGuestLogin) {
     btnGuestLogin.addEventListener("click", () => {
-        // Create a guest session
         const guestId = 'guest_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-        localStorage.setItem('guestMode', 'true');
-        localStorage.setItem('guestId', guestId);
-        console.log("Guest login:", guestId);
-        window.location.href = "/dashboard";
+
+        fetch('/api/guest-login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ guestId: guestId })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.setItem('guestMode', 'true');
+                    localStorage.setItem('guestId', guestId);
+                    console.log("Guest login:", guestId);
+                    window.location.href = "/dashboard";
+                } else {
+                    throw new Error(data.message);
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                authError.textContent = "Guest login failed";
+                authError.style.display = "block";
+            });
     });
 }
 
 if (btnLogout) {
     btnLogout.addEventListener("click", () => {
-        // Check if guest mode
-        if (localStorage.getItem('guestMode') === 'true') {
-            localStorage.removeItem('guestMode');
-            localStorage.removeItem('guestId');
-            window.location.reload();
-        } else {
-            signOut(auth).then(() => {
-                window.location.reload();
-            }).catch((error) => {
-                console.error(error);
+        fetch('/api/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                localStorage.removeItem('guestMode');
+                localStorage.removeItem('guestId');
+
+                const isGuest = localStorage.getItem('guestMode') === 'true';
+                if (!isGuest) {
+                    return signOut(auth);
+                }
+            })
+            .then(() => {
+                window.location.href = "/auth";
+            })
+            .catch((error) => {
+                console.error("Logout error:", error);
+                window.location.href = "/auth";
             });
-        }
     });
 }
 
@@ -74,7 +120,6 @@ onAuthStateChanged(auth, (user) => {
             userEmail.textContent = user.email;
         }
     } else if (isGuest) {
-        // Guest user
         if (btnLogin) btnLogin.style.display = "none";
         if (btnGuestLogin) btnGuestLogin.style.display = "none";
         if (userInfo) {

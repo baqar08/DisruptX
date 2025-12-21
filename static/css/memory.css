@@ -1,15 +1,16 @@
 #memory-display {
     font-size: 3rem;
     font-weight: 800;
-    color: var(--accent-color);
+    color: var(--accent-blue);
     min-height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f1f2f6;
-    border-radius: var(--border-radius);
+    background: var(--stimulus-bg);
+    border-radius: 12px;
     margin-bottom: 20px;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
+    border: 2px solid var(--border-color);
 }
 
 #memory-input-area {
@@ -23,9 +24,9 @@
     font-size: 2rem;
     font-weight: 600;
     min-height: 60px;
-    color: var(--text-primary);
+    color: var(--text-main);
     letter-spacing: 5px;
-    border-bottom: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-blue);
     padding: 0 20px;
 }
 
@@ -39,15 +40,15 @@
 .key-btn {
     padding: 15px;
     font-size: 1.25rem;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: var(--shadow-sm);
-    color: var(--text-primary);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    color: var(--text-main);
 }
 
 .key-btn:active {
     transform: scale(0.95);
-    background-color: #f1f2f6;
+    background-color: var(--btn-neutral-bg);
 }
 
 .action-btn {

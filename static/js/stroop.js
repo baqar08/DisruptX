@@ -56,7 +56,7 @@ function stopGame(manual = false) {
     inputArea.style.pointerEvents = "none";
 
     display.textContent = manual ? "Stopped" : "Done!";
-    display.style.color = "#2d3436";
+    display.style.color = "";
 
     if (!manual) showResults();
 }
@@ -83,7 +83,7 @@ function nextTrial() {
     state.isCongruent = (state.currentWord === state.currentColor);
 
     display.textContent = "+";
-    display.style.color = "#2d3436";
+    display.style.color = "";
 
     setTimeout(() => {
         if (!state.running) return;
@@ -107,7 +107,7 @@ function handleInput(selectedColor) {
 
     if (!correct) {
         display.textContent = "WRONG";
-        display.style.color = "#2d3436";
+        display.style.color = "";
     }
 
     updateStats();

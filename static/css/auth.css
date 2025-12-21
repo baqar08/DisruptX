@@ -26,14 +26,19 @@
     font-size: 0.9rem;
 }
 
+[data-theme="dark"] .auth-error {
+    background-color: #7f1d1d;
+    color: #fecaca;
+}
+
 .btn-google {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background-color: #ffffff;
-    color: #374151;
-    border: 1px solid #d1d5db;
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
     padding: 12px 24px;
     border-radius: 8px;
     font-size: 1rem;
@@ -45,8 +50,8 @@
 }
 
 .btn-google:hover {
-    background-color: #f9fafb;
-    border-color: #9ca3af;
+    background-color: var(--btn-neutral-bg);
+    border-color: var(--text-muted);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 

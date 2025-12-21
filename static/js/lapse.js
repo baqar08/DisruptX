@@ -33,6 +33,8 @@ function startTask() {
 
     display.textContent = "Wait...";
     display.className = "";
+    display.style.background = "";
+    display.style.color = "";
 
     scheduleNext();
 }
@@ -46,6 +48,8 @@ function stopTask() {
     btnStop.disabled = true;
     display.textContent = "Stopped";
     display.className = "";
+    display.style.background = "";
+    display.style.color = "";
 }
 
 function scheduleNext() {
@@ -54,6 +58,8 @@ function scheduleNext() {
     state.active = false;
     display.textContent = "Wait...";
     display.className = "";
+    display.style.background = "";
+    display.style.color = "";
 
     const delay = 2000 + Math.random() * 4000;
 

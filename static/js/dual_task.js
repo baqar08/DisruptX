@@ -64,8 +64,10 @@ function resetStats() {
     resCard.style.display = 'none';
     visStimulus.textContent = "Waiting...";
     visStimulus.className = "";
-    visStimulus.style.backgroundColor = "#f1f2f6";
-    visStimulus.style.color = "#2d3436";
+    visStimulus.textContent = "Waiting...";
+    visStimulus.className = "";
+    visStimulus.style.backgroundColor = "";
+    visStimulus.style.color = "";
     audIndicator.style.opacity = "0.3";
 }
 
@@ -93,7 +95,8 @@ function stopSession(manual = false) {
     clearTimeout(state.audTimer);
 
     visStimulus.textContent = "Stopped";
-    visStimulus.style.backgroundColor = "#f1f2f6";
+    visStimulus.textContent = "Stopped";
+    visStimulus.style.backgroundColor = "";
 
     btnVisual.disabled = false;
     btnAudio.disabled = false;
@@ -119,11 +122,13 @@ function triggerVisual() {
 
     if (state.visIsTarget) {
         visStimulus.textContent = "TARGET (Press A)";
-        visStimulus.style.backgroundColor = "var(--success-color)";
+        visStimulus.textContent = "TARGET (Press A)";
+        visStimulus.style.backgroundColor = "#10b981";
         visStimulus.style.color = "#fff";
     } else {
         visStimulus.textContent = "IGNORE";
-        visStimulus.style.backgroundColor = "var(--error-color)";
+        visStimulus.textContent = "IGNORE";
+        visStimulus.style.backgroundColor = "#ef4444";
         visStimulus.style.color = "#fff";
     }
 
@@ -144,8 +149,10 @@ function triggerVisual() {
 function endVisualEvent() {
     state.visActive = false;
     visStimulus.textContent = "...";
-    visStimulus.style.backgroundColor = "#f1f2f6";
-    visStimulus.style.color = "#2d3436";
+    state.visActive = false;
+    visStimulus.textContent = "...";
+    visStimulus.style.backgroundColor = "";
+    visStimulus.style.color = "";
     updateUI();
 }
 
@@ -200,8 +207,9 @@ function handleInput(type) {
         }
         state.visActive = false;
         visStimulus.textContent = "Got it!";
-        visStimulus.style.backgroundColor = "#dfe6e9";
-        visStimulus.style.color = "#2d3436";
+        visStimulus.textContent = "Got it!";
+        visStimulus.style.backgroundColor = "";
+        visStimulus.style.color = "";
         updateUI();
     }
 

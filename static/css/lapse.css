@@ -1,21 +1,23 @@
 #lapse-display {
     height: 200px;
-    background: #dfe6e9;
-    border-radius: var(--border-radius);
+    background: var(--stimulus-bg);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
     font-weight: 700;
-    color: #b2bec3;
+    color: var(--text-muted);
     margin-bottom: 20px;
     cursor: pointer;
     transition: background 0.1s;
+    border: 2px solid var(--border-color);
 }
 
 #lapse-display.active {
     background: #e74c3c;
     color: #fff;
+    border-color: #e74c3c;
 }
 
 .stats-grid {
@@ -26,9 +28,9 @@
 }
 
 .stat-box {
-    background: #fff;
+    background: var(--stat-bg);
     padding: 15px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     text-align: center;
 }
@@ -36,27 +38,32 @@
 .stat-val {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent-color);
+    color: #0f4c75;
+}
+
+[data-theme="dark"] .stat-val {
+    color: #38bdf8;
 }
 
 .lapse-log {
     max-height: 200px;
     overflow-y: auto;
-    border: 1px solid #eee;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 10px;
-    background: #f8f9fa;
+    background: var(--stat-bg);
     font-size: 0.9rem;
 }
 
 .log-item {
     padding: 8px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
+    color: var(--text-main);
 }
 
 .log-item.lapse {
-    color: var(--error-color);
+    color: #ef4444;
     font-weight: bold;
 }
