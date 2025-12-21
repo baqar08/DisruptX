@@ -60,3 +60,60 @@
     border-top: 1px solid var(--border-color);
     padding-top: 20px;
 }
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.auth-divider span {
+    padding: 0 12px;
+    text-transform: lowercase;
+}
+
+.btn-guest {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-family: var(--font-ui);
+    box-shadow: 0 4px 6px rgba(102, 126, 234, 0.25);
+}
+
+.btn-guest:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(102, 126, 234, 0.35);
+}
+
+.btn-guest svg {
+    width: 24px;
+    height: 24px;
+}
+
+.guest-note {
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+}

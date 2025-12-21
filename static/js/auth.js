@@ -11,6 +11,7 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 const btnLogin = document.getElementById("btn-google-login");
+const btnGuestLogin = document.getElementById("btn-guest-login");
 const btnLogout = document.getElementById("btn-logout");
 const userInfo = document.getElementById("user-info");
 const userEmail = document.getElementById("user-email");
@@ -21,6 +22,9 @@ if (btnLogin) {
         signInWithPopup(auth, provider)
             .then((result) => {
                 console.log("User:", result.user);
+                // Clear guest mode
+                localStorage.removeItem('guestMode');
+                localStorage.removeItem('guestId');
                 window.location.href = "/dashboard";
             })
             .catch((error) => {
@@ -31,26 +35,57 @@ if (btnLogin) {
     });
 }
 
+if (btnGuestLogin) {
+    btnGuestLogin.addEventListener("click", () => {
+        // Create a guest session
+        const guestId = 'guest_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('guestMode', 'true');
+        localStorage.setItem('guestId', guestId);
+        console.log("Guest login:", guestId);
+        window.location.href = "/dashboard";
+    });
+}
+
 if (btnLogout) {
     btnLogout.addEventListener("click", () => {
-        signOut(auth).then(() => {
+        // Check if guest mode
+        if (localStorage.getItem('guestMode') === 'true') {
+            localStorage.removeItem('guestMode');
+            localStorage.removeItem('guestId');
             window.location.reload();
-        }).catch((error) => {
-            console.error(error);
-        });
+        } else {
+            signOut(auth).then(() => {
+                window.location.reload();
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
     });
 }
 
 onAuthStateChanged(auth, (user) => {
+    const isGuest = localStorage.getItem('guestMode') === 'true';
+
     if (user) {
         if (btnLogin) btnLogin.style.display = "none";
+        if (btnGuestLogin) btnGuestLogin.style.display = "none";
         if (userInfo) {
             userInfo.style.display = "block";
             userEmail.textContent = user.email;
         }
+    } else if (isGuest) {
+        // Guest user
+        if (btnLogin) btnLogin.style.display = "none";
+        if (btnGuestLogin) btnGuestLogin.style.display = "none";
+        if (userInfo) {
+            userInfo.style.display = "block";
+            userEmail.textContent = "Guest User";
+        }
     } else {
         if (btnLogin) btnLogin.style.display = "flex";
+        if (btnGuestLogin) btnGuestLogin.style.display = "flex";
         if (userInfo) userInfo.style.display = "none";
     }
 });
+
 
