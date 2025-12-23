@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template, redirect, url_for, session, request, jsonify
 from functools import wraps
 from dotenv import load_dotenv
@@ -9,17 +10,24 @@ from firebase_admin import credentials, auth as firebase_auth
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'your-secret-key-change-this-in-production')
 
+firebase_cred_json = os.getenv('FIREBASE_CREDENTIALS_JSON')
 service_account_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
 
-if service_account_path and os.path.exists(service_account_path):
+if not firebase_admin._apps:  
     try:
-        cred = credentials.Certificate(service_account_path)
-        firebase_admin.initialize_app(cred)
-        print("Firebase Admin Initialized successfully.")
+        if firebase_cred_json:
+            cred_dict = json.loads(firebase_cred_json)
+            cred = credentials.Certificate(cred_dict)
+            firebase_admin.initialize_app(cred)
+            print("Firebase Admin Initialized successfully from FIREBASE_CREDENTIALS_JSON.")
+        elif service_account_path and os.path.exists(service_account_path):
+            cred = credentials.Certificate(service_account_path)
+            firebase_admin.initialize_app(cred)
+            print("Firebase Admin Initialized successfully from service_account_path.")
+        else:
+            print("Warning: No valid Firebase credentials found. Set FIREBASE_CREDENTIALS_JSON or GOOGLE_APPLICATION_CREDENTIALS.")
     except Exception as e:
-        print(f"Failed to initialize Firebase Admin: {e}") 
-else:
-    print("Warning: GOOGLE_APPLICATION_CREDENTIALS not set or file not found. Auth features may not work.")
+        print(f"Failed to initialize Firebase Admin: {e}")
 
 def login_required(f):
     @wraps(f)
