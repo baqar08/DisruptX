@@ -39,7 +39,7 @@
 
 A showcase of the cognitive tasks and platform features.
 
-🎥 [DEMO VIDEO](LINK_TO_YOUR_DEMO_VIDEO)
+🎥 [DEMO VIDEO](https://drive.google.com/file/d/1dimEzTp5jwAWgBtEDYyuHUjH01K9vvgH/view?usp=sharing)
 
 ### Live Demo [Link](LINK_TO_YOUR_LIVE_DEMO)
 
