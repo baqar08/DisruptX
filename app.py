@@ -4,7 +4,7 @@ from functools import wraps
 from dotenv import load_dotenv
 load_dotenv()
 import firebase_admin
-from firebase_admin import credentials, auth
+from firebase_admin import credentials, auth as firebase_auth
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'your-secret-key-change-this-in-production')
@@ -47,7 +47,7 @@ def guest_login():
 def firebase_login():
     try:
         id_token = request.json.get('idToken')
-        decoded_token = auth.verify_id_token(id_token)
+        decoded_token = firebase_auth.verify_id_token(id_token)
         uid = decoded_token['uid']
         email = decoded_token.get('email', '')
         
